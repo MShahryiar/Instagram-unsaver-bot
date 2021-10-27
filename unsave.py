@@ -38,9 +38,16 @@ class Unsave(webdriver.Chrome):
 		submit_btn = self.find_element_by_css_selector(
 			'button[type="Submit"]'
 			).click()
+	
+	def no_notifications(self):
+		self.find_element_by_class_name('HoLwm').click()
 
 
-	def saveItems(self):
+	def go_to_profile(self,username):
+		self.get(f'https://www.instagram.com/{username}/saved/')
+
+
+	def savedItems(self):
 		pass
 		# go to saves items list
 

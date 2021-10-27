@@ -1,3 +1,3 @@
 BASE_URL = 'https://www.instagram.com'
-username = 'Your_Username'
-password = 'Your Password'
+username = 'your-username'
+password = 'your-pass'
