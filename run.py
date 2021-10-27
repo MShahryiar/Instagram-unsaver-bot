@@ -6,3 +6,4 @@ with Unsave() as bot:
 	bot.login(consts.username,consts.password)
 	bot.no_notifications()
 	bot.go_to_profile(consts.username)
+	bot.saved_Items()

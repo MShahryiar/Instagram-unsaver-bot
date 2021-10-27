@@ -1,6 +1,7 @@
 import constants as consts
 import os 
 from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class Unsave(webdriver.Chrome):
@@ -35,6 +36,7 @@ class Unsave(webdriver.Chrome):
 		password_input.clear()
 		password_input.send_keys(password)
 
+
 		submit_btn = self.find_element_by_css_selector(
 			'button[type="Submit"]'
 			).click()
@@ -47,14 +49,25 @@ class Unsave(webdriver.Chrome):
 		self.get(f'https://www.instagram.com/{username}/saved/')
 
 
-	def savedItems(self):
-		pass
-		# go to saves items list
+	def saved_Items(self):
+		counter = 0
+		while True:
+			try:
+				saved_item = self.find_element_by_class_name(
+				'v1Nh3').click()
+				unsave = self.find_element_by_css_selector(
+					'svg[aria-label="Remove"]').click()
+				close_item = self.find_element_by_css_selector(
+				'svg[aria-label="Close"]').click()
+				counter += 1
+				self.refresh()
+			except:
+				print(f'Finished Unsaving posts! Total Unsaved posts => {counter}')
+				break
 
-	def unsaveItems(self):
-		pass
-		# Click on each item and unsave , refresh and go to the next one
-		# should count each unsave item 
+
+
+		
 
 	def output(self):
 		pass 
